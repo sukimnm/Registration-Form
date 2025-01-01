@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!---------- Whole Register Form With Title and Inputs ---------->
+  <main>
+    <!-------- Form Title with h1 tag -------->
+    <h1 id="title">Register</h1>
+
+    <!-------- Form Input parts -------->
+    <form id="resister-form" action="">
+
+      <!------ Row: Name*  ------>
+      <div class="row-form">
+        <!-- Left label: Name* -->
+        <div class="col-label">
+          <label for="first-name">Name <span class="require">*</span></label>
+        </div>
+        <!-- Right input side: id="first-name", id="last-name" -->
+        <!-- This is the ONLY row with TWO TEXT inputs -->
+        <div class="col-input">
+          <input type="text" name="first-name" id="first-name" required placeholder="First Name">
+          <input type="text" name="last-name" id="last-name" required placeholder="Last Name">
+        </div>
+      </div>
+
+      <!------ Row: Email* ------>
+      <div class="row-form">
+        <!-- Left Label: Email* -->
+        <div class="col-label">
+          <label for="email">Email <span class="require">*</span></label>
+        </div>
+        <!-- Right email input side: id="email" -->
+        <div class="col-input">
+          <input type="email" name="email" id="email" required placeholder="Email Address">
+        </div>
+      </div>
+
+      <!------ Row: Password* ------>
+      <div class="row-form">
+        <!-- Left Label: Password* -->
+        <div class="col-label">
+          <label for="password">Password <span class="require">*</span></label>
+        </div>
+        <!-- Right password input side: id="password" -->
+        <div class="col-input">
+          <input type="password" name="password" id="password" autocomplete="off" required placeholder="Password">
+        </div>
+      </div>
+
+      <!------ Row: Confirm Password* ------>
+      <div class="row-form">
+        <!-- Left Label: Confirm Password* -->
+        <div class="col-label">
+          <label for="confirm-password">Confirm Password <span class="require">*</span></label>
+        </div>
+        <!-- Right password input side: id="confirm-password" -->
+        <div class="col-input">
+          <input type="password" name="confirm-password" id="confirm-password" autocomplete="off" required
+            placeholder="Confirm Password">
+        </div>
+      </div>
+
+      <!------ Row: Date of Birth* ------>
+      <div class="row-form">
+        <!-- Left Label: Date of Birth* -->
+        <div class="col-label">
+          <label for="bday">Date of Birth <span class="require">*</span></label>
+        </div>
+        <!-- Right date input side: id="bday" -->
+        <div class="col-input">
+          <input type="date" name="bday" id="bday" required>
+        </div>
+      </div>
+
+      <!------ Row: Gender* ------>
+      <div class="row-form">
+        <!-- Left Label: Gender* -->
+        <!-- p tag is used here instead of label -->
+        <div class="col-label">
+          <p id="gender">Gender <span class="require">*</span></p>
+        </div>
+        <!-- Right radio input side: id="bday" -->
+        <!-- label tag is used by pairing with radio input
+             There are 3 radio buttons sharing name="gender"
+        -->
+        <div class="col-input">
+          <div>
+            <!-- radio input: id="male" -->
+            <!-- the first radio input "male" is checked
+             to make sure the radio group will has a value -->
+            <input type="radio" name="gender" id="male" value="male" checked>
+            <label for="male">&nbspMale</label>
+          </div>
+          <!-- radio input: id="female" -->
+          <div>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="female">&nbspFemale</label>
+          </div>
+          <!-- radio input: id="other" -->
+          <div>
+            <input type="radio" name="gender" id="other" value="other">
+            <label for="other">&nbspOther</label>
+          </div>
+        </div>
+      </div>
+
+      <!------ Row: About Me (optional) ------>
+      <div class="row-form">
+        <!-- Left Label: About Me (optional) -->
+        <div class="col-label">
+          <label for="about-me">About Me&nbsp&nbsp&nbsp</label>
+        </div>
+        <!-- Right textarea side: id="about-me" -->
+        <div class="col-input">
+          <textarea name="about-me" id="about-me" rows="3" placeholder="Let us know more about you!"></textarea>
+        </div>
+      </div>
+
+      <!------ Row: Choose Your Profession* ------>
+      <div class="row-form">
+        <!-- Left Label: Choose Your Profession* -->
+        <div class="col-label">
+          <label for="profession">Choose Your Profession <span class="require">*</span></label>
+        </div>
+        <!-- Right select side: id="profession" -->
+        <!-- with 3 options and a invalid option for prompt purpose -->
+        <div class="col-input">
+          <select name="profession" id="profession" required>
+            <option disabled selected value=""> -- select an option -- </option>
+            <option value="Web Development"> Web Development</option>
+            <option value="Data Analytics"> Data Analytics</option>
+            <option value="UI/UX Design"> UI/UX Design</option>
+          </select>
+        </div>
+      </div>
+      <div class="row-form">
+        <div class="col-input">
+          <input type="submit" name="submit" id="submit">
+        </div>
+      </div>
+    </form>
+  </main>
+</body>
+
+</html>

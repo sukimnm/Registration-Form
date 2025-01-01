@@ -1,0 +1,228 @@
+/* :root is used for define regular variables */
+:root {
+  --form-background-color-darkgray: rgba(31, 39, 68, 0.7);
+  --form-main-color-white: #eaeaf1;
+  --form-title-color-white: #f2f3f5;
+  --button-color-blue: #2b39d2;
+  --placeholder-color-grey:#757575;
+  --input-font-color: #111832;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  -webkit-user-drag: none;
+}
+
+/* make html, body full screen size */
+html,
+body {
+  width: 100vw;
+  height: 100dvh;
+  background-image: url('image/tech.jpg');
+  background-size: cover;
+  font-family:'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* whole form part */
+main {
+  margin: 8rem auto;
+  width: 50rem;
+  height: auto;
+  background-color: var(--form-background-color-darkgray);
+  color: var(--form-main-color-white);
+  font-size: 1rem;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+h1 {
+  color:var(--form-title-color-white);
+  text-align: center;
+}
+
+/* main form */
+/* top to bottom flex layout */
+form {
+  margin-top: 1rem;
+  width: 89%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* two column form */
+/* Every form row is horizontal flex */
+/* with labels on the left side
+   and inputs on the right side */
+.row-form {
+  padding: 0.6rem;
+  display: flex;
+  gap: 2.2rem;
+}
+
+/* labels on each form row spend 30% width of the row
+   labels are right aligned */
+.col-label {
+  flex: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+/* inputs on each form row spend 60% width of the row
+   inputs are left aligned by default */
+.col-input {
+  flex: 60%;
+  /* for two name inputs (First Name and Last Name) */
+  display: flex;
+  gap: 1rem;   
+}
+
+/* style the * symbol for labels */
+.require {
+  color: #fa5d63;
+  font-size: 0.8rem;
+  vertical-align: top;
+}
+
+/* style for inputs(except submit button, radio buttons)
+    as well as textarea and select*/
+input:not([type="submit"]):not([type="radio"]),
+textarea, select {
+  width: 100%;
+  font-size: 1rem;
+  background-color: var(--form-main-color-white);
+  padding: 0.6rem;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.3rem;
+  box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.3), 8px 8px 20px 0 rgba(0, 0, 0, 0.2);
+  /* only for textarea, make it can't be resized horizontally */
+  resize: vertical;
+}
+
+/* Make radio buttons for Gender section in one line  */
+.col-input:has(input[name="gender"]) {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* set input(excluded submit button, radio buttons, 
+    and date input) font color */
+input:not([type="submit"]):not([type="radio"]):not([type="date"]),
+textarea, select {
+  color: var(--input-font-color);
+}
+
+/* set placeholder and date font size and color */
+/* font style for date input can be changed later on in js */
+::placeholder, input[type="date"]  {
+  color: var(--placeholder-color-grey);
+  font-size: 0.9rem;
+}
+
+/* make the icon in date input match other placeholder */
+/* can be changed later on in js */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.7;
+}
+
+/* make first(invalid) option match the placeholder font style*/
+select:invalid {
+  color: var(--placeholder-color-grey);
+  font-size: 0.9rem;
+}
+
+/* the original arrow in select is a little bit outside */
+/* change the look of it */
+select {
+  /* make the right arrow disappear */
+  appearance: none;
+  /* create a new arrow */
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+/* make a pseudo element before submit button
+    make is take left flex like left side labels  */
+.row-form:last-child::before {
+  content: "";
+  flex: 30%;
+}
+
+/* make the submit button take right flex like right side inputs */
+.row-form:last-child {
+  justify-content: right;
+  flex: 60%;
+}
+
+/* style submit button */
+input[type="submit"] {
+  width: 100%;
+  background-color: var(--button-color-blue);
+  color: var(--form-title-color-white);
+  padding: 12px 20px;
+  margin: 1rem 0;
+  font-size: 1rem;
+  letter-spacing: 0.6px;
+  font-weight: bold;
+  line-height: 1.6rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.2), 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* create a submit button hover effect */
+input[type="submit"]:hover {
+  background-color: #1526d6;
+}
+/* resize the window
+    the code below will take place
+    when the window is smaller than 800px */
+@media screen and (max-width: 800px)  {
+
+  /* one column form */
+  .row-form {
+    flex-direction: column;
+    gap: .3rem;
+  }
+
+  /* make the one column form width smaller */
+  main {
+    margin: 8rem auto;
+    width: 36rem;
+  }
+  
+  /* center the form */
+  #resister-form {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .col-label {
+    flex: 100%;
+    justify-content: left;
+  }
+
+  .col-input {
+    flex: 100%;
+  }
+}
+
